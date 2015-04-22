@@ -16,7 +16,7 @@ public class Monitor {
     private LinkedList<Muestra> lista; //
     private int tamaLista=500;
     private String estado="muestreo";
-    private double umbralGravedad=2.5;
+    private double umbralGravedad=2.1; 
     private long pt=0; //peak time
     private long contadorTiempo=0;
     Muestra[] datos=null;

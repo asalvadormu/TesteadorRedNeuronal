@@ -11,7 +11,7 @@ import java.util.LinkedList;
 public class TesteadorRedNeuronal {
 
     /**
-     * Para unos pesos indicados prueba la red con un archivo
+     * Para unos pesos indicados pr ueba la red con un archivo
      * Devuelve el valor esperado y el valor calculado.
      * 
      * Entrada de archivo con pesos
@@ -23,8 +23,8 @@ public class TesteadorRedNeuronal {
      */
     public static void main(String[] args) {
         //captura argumentos        
-        String archivoPesos=args[0];
-        String dirEntrada=args[1];
+        String archivoPesos=args[0]; 
+        String dirEntrada=args[1]; 
         String tipo=args[2]; //indica si es sentarse, salto, golpe o caida. 1 2 3 4
         int elTipo=Integer.parseInt(tipo);
         
@@ -172,6 +172,8 @@ public class TesteadorRedNeuronal {
                     
                     if(resul!=null){
                         //monitor devuelve los 8 valores.
+                        //ahora hay que normalizar esos valores para que la red pueda tratarlos
+                        resul=Normalizador.normaliza(resul);
                         //ahora pasar por red para obtener la salida.                    
                         red.setVector_entrada(resul);
                         red.imprimirVector(resul);
@@ -187,6 +189,7 @@ public class TesteadorRedNeuronal {
                             }
                         }
                         marca=marca+1;
+                        System.out.println("Marca salida: "+marca);
                         if(marca==elTipo){
                             contadorPositivos++;
                         }else{
@@ -202,7 +205,7 @@ public class TesteadorRedNeuronal {
             System.out.println("Pruebas totales: "+contadorPruebasTotales);
             System.out.println("Positivos: "+contadorPositivos);
             System.out.println("Negativos: "+contadorNegativos);
-            System.out.println("Positivos: "+contadorNulos);
+            System.out.println("Nulos: "+contadorNulos);
               
         }
         
